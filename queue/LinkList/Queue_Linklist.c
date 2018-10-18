@@ -62,27 +62,22 @@ int back(Queue_p obj){
 }
 
 //Copy obj1 to obj2
-bool copy(Queue_p obj1,Queue_p obj2){
-	if(obj1->head == NULL || obj1 == obj2){
-		destoryQueue(obj2);
-		printf("obj2 set to NULL");
-		return 1;
-	}
-	if(obj2 != NULL)
-		destoryQueue(obj2);
-	printf("\n%p",&obj2);
+Queue_p copy(Queue_p obj1){
+	if(obj1->head == NULL)
+		return NULL;
+	Queue_p obj2 = initialQueue();
 	obj2 = initialQueue();
 	node_p temp = obj1->head;
 	while(temp != NULL){
 		enqueue(obj2,temp->key);
 		temp = temp->next;
 	}
-	return 1;
+	return obj2;
 }
 
 void dequeueAll(Queue_p obj){
 	while(!isEmpty(obj))
-		dequeue(obj);
+		printf("%d\n",dequeue(obj));
 	//node_p temp = obj->head;
 	//node_p temp1 = NULL;
 	//while(temp != NULL){

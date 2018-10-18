@@ -32,7 +32,7 @@ int front(Queue_p);
 
 int back(Queue_p);
 
-bool copy(Queue_p,Queue_p);
+Queue_p copy(Queue_p);
 
 void dequeueAll(Queue_p);
 

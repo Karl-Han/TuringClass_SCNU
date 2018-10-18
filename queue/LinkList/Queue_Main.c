@@ -9,20 +9,15 @@ int main(){
 	enqueue(ins,101);
 	enqueue(ins,201);
 	enqueue(ins,301);
-	printf("ins->front = %d",front(ins));
-	printf("ins->back= %d",back(ins));
+	printf("ins->front = %d\n",front(ins));
+	printf("ins->back= %d\n",back(ins));
 	Queue_p ins2 = initialQueue();
-	printf("\n%p",&ins2);
-	//copy(ins, ins2);
-	printf("\n");
-	printf("\n");
-	//copy(ins,ins);
-	printf("\n");
+	ins2 = copy(ins);
 	for(int i = 0;i < 11;i++){
 		printf("%d th is: %d\n",i+1,dequeue(ins));
 	}
-	dequeueAll(ins2);
 	destoryQueue(ins);
+	dequeueAll(ins2);
 	destoryQueue(ins2);
 	return 0;
 }
