@@ -1,10 +1,4 @@
-#ifndef _Stack
-#define _Stack
-
-#include <stdlib.h>
-#include <stdio.h>
-#include <stdbool.h>
-#include <assert.h>
+#include "Queue_Array.h"
 
 /*
  * Functions to implement:
@@ -15,14 +9,6 @@
  * 4. isFull(); Judge whether it is full
  * 5. copy(); Copy one to another
  */
-
-typedef struct Queue{
-	int capacity;
-	int head;
-	int last;
-	int count;
-	int contain[0];
-}Queue,*Queue_p;
 
 Queue_p initialQueue(int size){
 	Queue_p ins = (Queue_p)malloc(sizeof(Queue) + sizeof(int)*size);
@@ -56,10 +42,11 @@ bool enqueue(Queue_p obj,int x){
 int dequeue(Queue_p obj){
 	if(isEmpty(obj)){
 		printf("ERROR, it is empty.");
-		assert(0);
+		return -1;
 	}
 	int pos = obj->head;
 	obj->head++;
+	obj->count--;
 	return obj->contain[pos];
 }
 
@@ -71,4 +58,26 @@ int front(Queue_p obj){
 	return obj->contain[obj->head];
 }
 
-#endif
+int back(Queue_p obj){
+	if(isEmpty(obj)){
+		printf("ERROR, it is empty.");
+		assert(0);
+	}
+	return obj->contain[obj->last];
+}
+
+//Copy obj1 to obj2
+bool copy(Queue_p obj1,Queue_p obj2){
+	if(obj1 == obj2)
+		return 1;
+	if(obj2 != NULL)
+		free(obj2);
+	obj2 = initialQueue(obj1->capacity);
+	int ptr = obj1->head;
+	while(ptr != obj1->last){
+		obj2->contain[ptr] = obj1->contain[ptr];
+		ptr = ptr + 1 % obj1->capacity;
+	}
+	return 1;
+}
+
