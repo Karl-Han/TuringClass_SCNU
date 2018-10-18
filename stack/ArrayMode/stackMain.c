@@ -1,4 +1,4 @@
-#include "stack.h"
+#include "Stack_Array.h"
 
 int main(){
 	Stack_p ins = initialStack(10);
