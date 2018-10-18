@@ -2,7 +2,7 @@
 
 /*
  * Functions to implement:
- * Basic operation: enqueue dequeue
+ * Basic operation: enqueue dequeue constructor destructor
  * 1. front(); Access the first element
  * 2. back(); Access the last element
  * 3. isEmpty(); Judge whether it is empty
@@ -17,6 +17,10 @@ Queue_p initialQueue(int size){
 	ins->last = 0;
 	ins->count = 0;
 	return ins;
+}
+
+void destoryQueue(Queue_p obj){
+	free(obj);
 }
 
 bool isEmpty(Queue_p obj){
