@@ -12,7 +12,7 @@ typedef struct Queue{
 	int head;
 	int last;
 	int count;
-	int contain[0];
+	int contain[];
 }Queue,*Queue_p;
 
 Queue_p initialQueue(int);
