@@ -84,7 +84,7 @@ Stack_p Mid2RPN_Multiply(char** seq,int length){
 				push(s,seq[i]);
 			}
 			else {
-				while(isEmpty(s) || !(getPriority(seq[i]) > getPriority(top(s)))){
+				while(!isEmpty(s) && !(getPriority(seq[i]) > getPriority(top(s)))){
 					if(!isEmpty(num)){
 						char* op2 = pop(num);
 						push(out,op2);
