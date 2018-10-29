@@ -19,7 +19,7 @@ void deleteQueue(Queue_p obj){
 	}
 }
 
-bool isEmpty(Queue_p obj){
+bool isEmpty_queue(Queue_p obj){
 	return (obj->head == NULL);
 }
 
@@ -43,7 +43,7 @@ bool enqueue(Queue_p obj,char* x){
 }
 
 char* dequeue(Queue_p obj){
-	if(isEmpty(obj)){
+	if(isEmpty_queue(obj)){
 		printf("ERROR, it is empty.");
 		return NULL;
 	}
@@ -77,8 +77,8 @@ Queue_p copy(Queue_p obj1){
 }
 
 void dequeueAll(Queue_p obj){
-	while(!isEmpty(obj))
-		printf("%d\n",dequeue(obj));
+	while(!isEmpty_queue(obj))
+		printf("%s\n",dequeue(obj));
 	//node_p temp = obj->head;
 	//node_p temp1 = NULL;
 	//while(temp != NULL){

@@ -107,18 +107,18 @@ Queue_p Mid2RPN_Multiply(char** seq,int length){
 	return out;
 }
 
-char**  parse(char *ch,int *length){
+char**  parse(char *str,int *length){
 	int i = 0;
 	int count = 0;
 	char **strA = (char**)malloc(sizeof(char*)*20);
 	do{
 		int start = i;
-		while(ch[i] != ' ' && ch[i] != '\0') i++;
+		while(str[i] != ' ' && str[i] != '\0') i++;
 		strA[count] = (char*)malloc(sizeof(char)*(i-start));
 		for(int j = 0;j < (i-start);j++){
-			strA[count][j] = ch[start + j];
+			strA[count][j] = str[start + j];
 		}
-	}while(count++,ch[i++] != '\0');
+	}while(count++,str[i++] != '\0');
 	*length = count;
 	return strA;
 }

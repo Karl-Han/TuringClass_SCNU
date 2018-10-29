@@ -29,7 +29,7 @@ void deleteStack(Stack_p obj){
 	}
 }
 
-bool isEmpty(Stack_p obj){
+bool isEmpty_stack(Stack_p obj){
 	return (obj->head == NULL);
 }
 
@@ -63,7 +63,7 @@ char* pop(Stack_p obj){
 
 //Resolve memory leak to some extent.
 void popAll(Stack_p obj){
-	while(!isEmpty(obj)){
+	while(!isEmpty_stack(obj)){
 		char* temp = pop(obj);
 		printf("%s  ",temp);
 		free(temp);
