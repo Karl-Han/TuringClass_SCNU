@@ -23,7 +23,7 @@ void fatorial(int fac){
 		for(int j = 0;j < 10000;j++){
 			sum = i * digit[j] + carry;
 			digit[j] = sum % 10;
-			carry = (sum - digit[j]) / 10;
+			carry = sum / 10;
 		}
 	}
 	length = 9999;

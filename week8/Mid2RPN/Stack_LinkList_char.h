@@ -6,6 +6,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <assert.h>
+#include "Queue_Linklist.h"
 
 //Function to complete
 //Basic operation: push pop
@@ -15,13 +16,13 @@
 //3. isFull(Stack); To know whether it is full.
 //4. copy(Stack,Stack);
 
-typedef struct node* node_p;
-
-//node->key will use another copy of the string
-typedef struct node{
-	char* key;
-	node_p next;
-}node;
+//typedef struct node* node_p;
+//
+////node->key will use another copy of the string
+//typedef struct node{
+//	char* key;
+//	node_p next;
+//}node;
 
 typedef struct {
 	int capacity;
@@ -32,9 +33,9 @@ Stack_p initialStack();
 
 void deleteStack(Stack_p);
 
-bool isEmpty(Stack_p);
+bool isEmpty_stack(Stack_p);
 
-bool isFull(Stack_p);
+bool isFull_stack(Stack_p);
 
 //char* will be pass by value.
 //I will use another copy of it.
@@ -47,6 +48,6 @@ void popAll(Stack_p);
 char* top(Stack_p);
 
 //Copy s1 to s2
-bool copy(Stack_p,Stack_p);
+bool copy_stack(Stack_p,Stack_p);
 
 #endif
