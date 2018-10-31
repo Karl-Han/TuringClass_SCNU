@@ -33,9 +33,9 @@ Stack_p initialStack();
 
 void deleteStack(Stack_p);
 
-bool isEmpty(Stack_p);
+bool isEmpty_stack(Stack_p);
 
-bool isFull(Stack_p);
+bool isFull_stack(Stack_p);
 
 //char* will be pass by value.
 //I will use another copy of it.
@@ -48,6 +48,6 @@ void popAll(Stack_p);
 char* top(Stack_p);
 
 //Copy s1 to s2
-bool copy(Stack_p,Stack_p);
+bool copy_stack(Stack_p,Stack_p);
 
 #endif

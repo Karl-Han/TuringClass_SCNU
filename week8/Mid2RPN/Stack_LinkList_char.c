@@ -33,7 +33,7 @@ bool isEmpty_stack(Stack_p obj){
 	return (obj->head == NULL);
 }
 
-bool isFull(Stack_p obj){
+bool isFull_stack(Stack_p obj){
 	return false;
 }
 

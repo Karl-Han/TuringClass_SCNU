@@ -32,7 +32,7 @@ Stack_p Mid2RPN_PlusAndMinus(char** seq,int length){
 			//push(out,op1);
 		}
 		else {
-			if(isEmpty(s)){
+			if(isEmpty_stack(s)){
 				char *op1 = pop(num);
 				push(out,op1);
 				push(s,seq[i]);
@@ -45,8 +45,8 @@ Stack_p Mid2RPN_PlusAndMinus(char** seq,int length){
 			}
 		}
 	}
-	while(!isEmpty(s)){
-		if(!isEmpty(num))
+	while(!isEmpty_stack(s)){
+		if(!isEmpty_stack(num))
 			push(out,pop(num));
 		push(out,pop(s));
 	}
@@ -78,16 +78,16 @@ Queue_p Mid2RPN_Multiply(char** seq,int length){
 			//push(out,op1);
 		}
 		else {
-			if(isEmpty(s) || getPriority_NoBranket(seq[i]) > getPriority_NoBranket(top(s))){
-				if(!isEmpty(num)){
+			if(isEmpty_stack(s) || getPriority_NoBranket(seq[i]) > getPriority_NoBranket(top(s))){
+				if(!isEmpty_stack(num)){
 					char *op1 = pop(num);
 					enqueue(out,op1);
 				}
 				push(s,seq[i]);
 			}
 			else {
-				while(!isEmpty(s) && !(getPriority_NoBranket(seq[i]) > getPriority_NoBranket(top(s)))){
-					if(!isEmpty(num)){
+				while(!isEmpty_stack(s) && !(getPriority_NoBranket(seq[i]) > getPriority_NoBranket(top(s)))){
+					if(!isEmpty_stack(num)){
 						char* op2 = pop(num);
 						enqueue(out,op2);
 					}
@@ -97,8 +97,8 @@ Queue_p Mid2RPN_Multiply(char** seq,int length){
 			}
 		}
 	}
-	while(!isEmpty(s)){
-		if(!isEmpty(num))
+	while(!isEmpty_stack(s)){
+		if(!isEmpty_stack(num))
 			enqueue(out,pop(num));
 		enqueue(out,pop(s));
 	}
@@ -147,16 +147,16 @@ Queue_p Mid2RPN_Complete(char** seq,int length){
 		}
 		else {
 			//Resolve the left bracket
-			if(isEmpty(s) || seq[i][0] == '('|| getPriority(seq[i]) > getPriority(top(s))){
-				if(!isEmpty(num)){
+			if(isEmpty_stack(s) || seq[i][0] == '('|| getPriority(seq[i]) > getPriority(top(s))){
+				if(!isEmpty_stack(num)){
 					char *op1 = pop(num);
 					enqueue(out,op1);
 				}
 				push(s,seq[i]);
 			}
 			else {
-				while(!isEmpty(s) && !(getPriority(seq[i]) > getPriority(top(s)))){
-					if(!isEmpty(num)){
+				while(!isEmpty_stack(s) && !(getPriority(seq[i]) > getPriority(top(s)))){
+					if(!isEmpty_stack(num)){
 						char* op2 = pop(num);
 						enqueue(out,op2);
 					}
@@ -170,8 +170,8 @@ Queue_p Mid2RPN_Complete(char** seq,int length){
 			}
 		}
 	}
-	while(!isEmpty(s)){
-		if(!isEmpty(num))
+	while(!isEmpty_stack(s)){
+		if(!isEmpty_stack(num))
 			enqueue(out,pop(num));
 		enqueue(out,pop(s));
 	}
